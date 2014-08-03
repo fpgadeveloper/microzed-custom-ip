@@ -27,8 +27,8 @@
 #
 # 3. The following remote source files that were added to the original project:-
 #
-#    "E:/Github/fpgadeveloper/microzed-custom-ip/Vivado/microzed_custom_ip.srcs/sources_1/bd/design_1/design_1.bd"
-#    "E:/Github/fpgadeveloper/microzed-custom-ip/Vivado/microzed_custom_ip.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd"
+#    "<projectdir>/src/bd/design_1.bd"
+#    "<projectdir>/src/hdl/design_1_wrapper.vhd"
 #
 #*****************************************************************************************
 
@@ -55,18 +55,18 @@ if {[string equal [get_filesets -quiet sources_1] ""]} {
 
 # Set IP repository paths
 set obj [get_filesets sources_1]
-set_property "ip_repo_paths" "[file normalize "$origin_dir/../ip_repo/my_multiplier_1.0"] [file normalize "$origin_dir/../ip_repo/my_multiplier_1.0"]" $obj
+set_property "ip_repo_paths" "[file normalize "$origin_dir/ip_repo/my_multiplier_1.0"]" $obj
 
 # Set 'sources_1' fileset object
 set obj [get_filesets sources_1]
 set files [list \
- "[file normalize "$origin_dir/microzed_custom_ip.srcs/sources_1/bd/design_1/design_1.bd"]"\
- "[file normalize "$origin_dir/microzed_custom_ip.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd"]"\
+ "[file normalize "$origin_dir/src/bd/design_1.bd"]"\
+ "[file normalize "$origin_dir/src/hdl/design_1_wrapper.vhd"]"\
 ]
 add_files -norecurse -fileset $obj $files
 
 # Set 'sources_1' fileset file properties for remote files
-set file "$origin_dir/microzed_custom_ip.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd"
+set file "$origin_dir/src/hdl/design_1_wrapper.vhd"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
 set_property "file_type" "VHDL" $file_obj
