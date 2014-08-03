@@ -48,9 +48,6 @@ set_property "default_lib" "xil_defaultlib" $obj
 set_property "simulator_language" "Mixed" $obj
 set_property "target_language" "VHDL" $obj
 
-# Create block design
-source $origin_dir/src/bd/design_1.tcl
-
 # Create 'sources_1' fileset (if not found)
 if {[string equal [get_filesets -quiet sources_1] ""]} {
   create_fileset -srcset sources_1
@@ -132,3 +129,7 @@ set obj [get_runs impl_1]
 current_run -implementation [get_runs impl_1]
 
 puts "INFO: Project created:microzed_custom_ip"
+
+# Create block design
+source $origin_dir/src/bd/design_1.tcl
+
