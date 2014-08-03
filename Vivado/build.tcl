@@ -48,6 +48,9 @@ set_property "default_lib" "xil_defaultlib" $obj
 set_property "simulator_language" "Mixed" $obj
 set_property "target_language" "VHDL" $obj
 
+# Create block design
+source $origin_dir/src/bd/design_1.tcl
+
 # Create 'sources_1' fileset (if not found)
 if {[string equal [get_filesets -quiet sources_1] ""]} {
   create_fileset -srcset sources_1
@@ -60,7 +63,6 @@ set_property "ip_repo_paths" "[file normalize "$origin_dir/ip_repo/my_multiplier
 # Set 'sources_1' fileset object
 set obj [get_filesets sources_1]
 set files [list \
- "[file normalize "$origin_dir/src/bd/design_1.bd"]"\
  "[file normalize "$origin_dir/src/hdl/design_1_wrapper.vhd"]"\
 ]
 add_files -norecurse -fileset $obj $files
