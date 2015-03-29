@@ -12,7 +12,7 @@ The project is designed for and tested on the MicroZed board.
 
 ### Requirements
 
-* Vivado 2014.2
+* Vivado 2014.4
 * MicroZed
 
 ### License

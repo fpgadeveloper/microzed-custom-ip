@@ -3,8 +3,11 @@
 #
 #*****************************************************************************************
 
-# Set the reference directory to where the script is
-set origin_dir [file dirname [info script]]
+# Set the reference directory for source file relative paths (by default the value is script directory path)
+set origin_dir "."
+
+# Set the directory path for the original project from where this script was exported
+set orig_proj_dir "[file normalize "$origin_dir/microzed_custom_ip"]"
 
 # Create project
 create_project microzed_custom_ip $origin_dir/microzed_custom_ip
@@ -28,26 +31,9 @@ if {[string equal [get_filesets -quiet sources_1] ""]} {
 set obj [get_filesets sources_1]
 set_property "ip_repo_paths" "[file normalize "$origin_dir/ip_repo/my_multiplier_1.0"]" $obj
 
-# Set 'sources_1' fileset object
-#set obj [get_filesets sources_1]
-#set files [list \
-# "[file normalize "$origin_dir/src/hdl/design_1_wrapper.vhd"]"\
-#]
-#add_files -norecurse -fileset $obj $files
-
-# Set 'sources_1' fileset file properties for remote files
-#set file "$origin_dir/src/hdl/design_1_wrapper.vhd"
-#set file [file normalize $file]
-#set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-#set_property "file_type" "VHDL" $file_obj
-
-
-# Set 'sources_1' fileset file properties for local files
-# None
-
 # Set 'sources_1' fileset properties
-#set obj [get_filesets sources_1]
-#set_property "top" "design_1_wrapper" $obj
+set obj [get_filesets sources_1]
+set_property "top" "design_1_wrapper" $obj
 
 # Create 'constrs_1' fileset (if not found)
 if {[string equal [get_filesets -quiet constrs_1] ""]} {
@@ -104,6 +90,7 @@ puts "INFO: Project created:microzed_custom_ip"
 # Create block design
 source $origin_dir/src/bd/design_1.tcl
 
-# Generate the wrapper  
+# Generate the wrapper
 set design_name [get_bd_designs]
 make_wrapper -files [get_files $design_name.bd] -top -import
+
