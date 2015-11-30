@@ -12,7 +12,7 @@ The project is designed for and tested on the MicroZed board.
 
 ### Requirements
 
-* Vivado 2015.3
+* Vivado 2015.4
 * [MicroZed 7Z010](http://microzed.org "MicroZed 7Z010")
 
 ### Installation of MicroZed board definition files
@@ -27,7 +27,7 @@ https://github.com/fpgadeveloper/microzed-custom-ip/tree/master/Vivado/boards/bo
 * `microzed_7010`
 * `microzed_7020`
 
-Copy those folders and their contents into the `C:\Xilinx\Vivado\2015.3\data\boards\board_files` folder (this may
+Copy those folders and their contents into the `C:\Xilinx\Vivado\2015.4\data\boards\board_files` folder (this may
 be different on your machine, depending on your Vivado installation directory).
 
 ### License
