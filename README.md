@@ -3,17 +3,21 @@ microzed-custom-ip
 
 Custom IP project for the MicroZed
 
+## Requirements
+
+This project is designed for Vivado 2017.2. If you are using an older version of Vivado, then you *MUST* use an older version
+of this repository. Refer to the [list of commits](https://github.com/fpgadeveloper/microzed-custom-ip/commits/master "list of commits")
+to find links to the older versions of this repository.
+
+* Vivado 2017.2
+* [MicroZed 7Z010](http://microzed.org "MicroZed 7Z010")
+
 ## Description
 
 This project instantiates a custom IP peripheral that interfaces to the
 Zynq PS as an AXI-lite slave. The custom IP contains a multiplier module
 that connects to read/write registers which can be accessed by the PS.
 The project is designed for and tested on the MicroZed board.
-
-## Requirements
-
-* Vivado 2017.2
-* [MicroZed 7Z010](http://microzed.org "MicroZed 7Z010")
 
 ## Installation of MicroZed board definition files
 
